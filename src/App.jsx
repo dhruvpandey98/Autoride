@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import Loader from './components/Loader/Loader'
 import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
 import Info from './components/Info/Info'
@@ -6,9 +8,13 @@ import Selection from './components/Selection/Selection'
 import Banner from './components/Banner/Banner'
 import Mobile from './components/Mobile/Mobile'
 import Footer from './components/Footer/Footer'
+
 const App = () => {
+  const [loading, setLoading] = useState(true)
+
   return (
     <div>
+      {loading && <Loader onComplete={() => setLoading(false)} />}
       <Navbar />
       <Hero />
       <Info />
