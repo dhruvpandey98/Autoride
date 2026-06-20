@@ -1,0 +1,118 @@
+
+.info-block {
+  --bg: #0e0f11;
+  --surface: #15161a;
+  --surface-border: #2a2c30;
+  --text: #f5f3ee;
+  --text-muted: #9a9da3;
+  --accent: #c8ff4d;
+
+  background: var(--bg);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 32px 100px;
+  gap: 48px;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  color: var(--text);
+}
+
+.info-block > div {
+  position: relative;
+  padding: 8px 0 8px 28px;
+  border-left: 1px solid var(--surface-border);
+  transition: border-color 0.25s ease;
+}
+
+.info-block > div:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+
+.info-block > div::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s ease;
+}
+
+.info-block > div:first-child::before {
+  display: none;
+}
+
+.info-block > div:hover::before {
+  transform: scaleY(1);
+}
+
+.info-block > div h2 {
+  font-family: "Archivo Expanded", "Arial Narrow", sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin: 0 0 16px;
+  color: var(--text);
+}
+
+.info-block .avail h2::before {
+  content: "01";
+}
+
+.info-block .comfort h2::before {
+  content: "02";
+}
+
+.info-block .saving h2::before {
+  content: "03";
+}
+
+.info-block > div h2::before {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.info-block > div p {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 32ch;
+}
+
+@media (max-width: 900px) {
+  .info-block {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 64px 24px 72px;
+  }
+
+  .info-block > div {
+    padding: 0 0 0 24px;
+    border-left: 1px solid var(--surface-border);
+  }
+
+  .info-block > div:first-child {
+    padding-left: 0;
+    border-left: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .info-block > div,
+  .info-block > div::before {
+    transition: none;
+  }
+}

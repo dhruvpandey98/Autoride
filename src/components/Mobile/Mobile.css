@@ -1,0 +1,277 @@
+
+.app-download {
+  --bg: #0e0f11;
+  --surface: #15161a;
+  --surface-border: #2a2c30;
+  --text: #f5f3ee;
+  --text-muted: #9a9da3;
+  --accent: #c8ff4d;
+
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.app-left {
+  max-width: 460px;
+}
+
+.app-title h2 {
+  font-family: "Archivo Expanded", "Arial Narrow", sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin: 0 0 20px;
+  color: var(--text);
+}
+
+.app-content p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0 0 32px;
+  max-width: 42ch;
+}
+
+.app-stores {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.store-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  padding: 10px 18px;
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.store-badge:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.store-badge svg {
+  flex-shrink: 0;
+}
+
+.store-badge span {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.store-badge small {
+  font-weight: 400;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: none;
+}
+
+.app-right {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 460px;
+}
+
+.phone {
+  position: absolute;
+  width: 220px;
+  height: 440px;
+  background: #0e0f11;
+  border: 8px solid #2a2c30;
+  border-radius: 36px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.phone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 18px;
+  background: #2a2c30;
+  border-radius: 0 0 12px 12px;
+  z-index: 2;
+}
+
+.phone-back {
+  right: calc(50% - 30px);
+  top: -10px;
+  width: 190px;
+  height: 380px;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.phone-back .phone-notch {
+  width: 56px;
+  height: 14px;
+}
+
+.phone-front {
+  left: calc(50% - 30px);
+  bottom: -10px;
+  z-index: 2;
+}
+
+.phone-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  padding: 26px 14px 16px;
+  gap: 10px;
+}
+
+.screen-statusbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.screen-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.screen-heading {
+  width: 60%;
+  height: 12px;
+  border-radius: 4px;
+  background: var(--surface-border);
+  margin-bottom: 4px;
+}
+
+.screen-card {
+  background: var(--bg);
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.screen-card-img {
+  width: 100%;
+  height: 70px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(200, 255, 77, 0.25), var(--surface-border));
+}
+
+.screen-card-line {
+  width: 80%;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--surface-border);
+}
+
+.screen-card-line.short {
+  width: 50%;
+}
+
+.screen-button {
+  margin-top: auto;
+  width: 100%;
+  height: 36px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.screen-block {
+  border-radius: 10px;
+  background: var(--surface-border);
+}
+
+.screen-block-wide {
+  width: 100%;
+  height: 90px;
+}
+
+.screen-block-tall {
+  width: 100%;
+  flex: 1;
+}
+
+@media (max-width: 900px) {
+  .app-download {
+    grid-template-columns: 1fr;
+    gap: 64px;
+    padding: 72px 24px;
+    text-align: center;
+  }
+
+  .app-left {
+    max-width: none;
+    margin: 0 auto;
+  }
+
+  .app-content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .app-stores {
+    justify-content: center;
+  }
+
+  .app-right {
+    min-height: 380px;
+  }
+
+  .phone {
+    width: 180px;
+    height: 360px;
+  }
+
+  .phone-back {
+    width: 156px;
+    height: 312px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-stores {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .store-badge {
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .store-badge {
+    transition: none;
+  }
+}
