@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div align="center">
 
 # AutoRide
@@ -121,3 +122,6 @@ Built with React.
 
 </div>
 
+=======
+# Autoride
+>>>>>>> e21a4cdba11ee72096e62a5706ee8554666b532d
