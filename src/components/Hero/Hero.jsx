@@ -1,5 +1,6 @@
 import './Hero.css'
 import Form from './Form/Form'
+
 const Hero = () => {
   return (
     <div className='hero'>

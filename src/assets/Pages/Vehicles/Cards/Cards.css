@@ -1,0 +1,193 @@
+.card-wrapper {
+  --bg: #0e0f11;
+  --surface: #15161a;
+  --surface-border: #2a2c30;
+  --field-bg: #1a1b1e;
+  --text: #f5f3ee;
+  --text-muted: #9a9da3;
+  --accent: #c8ff4d;
+
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  color: var(--text);
+}
+
+.card-wrapper .container {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 18px;
+  overflow: hidden;
+  width: 320px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card-wrapper .container:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+.card-wrapper .top {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--field-bg);
+}
+
+.card-wrapper .top .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-wrapper .badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  background: rgba(200, 255, 77, 0.12);
+  border: 1px solid rgba(200, 255, 77, 0.3);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+.card-wrapper .rating {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(14, 15, 17, 0.75);
+  backdrop-filter: blur(6px);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 999px;
+}
+
+.card-wrapper .rating svg {
+  color: var(--accent);
+}
+
+.card-wrapper .middle {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px 20px 0;
+  gap: 12px;
+}
+
+.card-wrapper .name h4 {
+  font-family: "Archivo Expanded", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+  margin: 0 0 4px;
+  color: var(--text);
+}
+
+.card-wrapper .name .type {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.card-wrapper .price {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.card-wrapper .price .from {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+.card-wrapper .price h4 {
+  font-family: "Archivo Expanded", "Arial Narrow", sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--accent);
+  margin: 0;
+  line-height: 1;
+}
+
+.card-wrapper .price .second {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.card-wrapper .specs {
+  display: flex;
+  gap: 18px;
+  padding-top: 16px;
+  margin: 14px 20px 0;
+  border-top: 1px solid var(--surface-border);
+}
+
+.card-wrapper .spec-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.card-wrapper .spec-item svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.card-wrapper .button {
+  padding: 18px 20px 20px;
+}
+
+.card-wrapper .button button {
+  width: 100%;
+  background: var(--accent);
+  color: #0e0f11;
+  border: none;
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  padding: 13px 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.card-wrapper .button button:hover {
+  background: #a8d93f;
+  transform: translateY(-1px);
+}
+
+.card-wrapper .button button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 380px) {
+  .card-wrapper .container {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-wrapper .container,
+  .card-wrapper .button button {
+    transition: none;
+  }
+}

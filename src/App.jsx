@@ -1,30 +1,20 @@
-import { useState } from 'react'
-import Loader from './components/Loader/Loader'
-import Navbar from './components/Navbar/Navbar'
-import Hero from './components/Hero/Hero'
-import Info from './components/Info/Info'
-import Infosecond from './components/Infosecond/Infosecond'
-import Selection from './components/Selection/Selection'
-import Banner from './components/Banner/Banner'
-import Mobile from './components/Mobile/Mobile'
-import Footer from './components/Footer/Footer'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './assets/Pages/Home/Home';
+import Vehicles from './assets/Pages/Vehicles/Vehicles';
+import Aboutus from './assets/Pages/Aboutus/Aboutus';
+import Contact from './assets/Pages/Contactus/Contact';
 
 const App = () => {
-  const [loading, setLoading] = useState(true)
-
   return (
-    <div>
-      {loading && <Loader onComplete={() => setLoading(false)} />}
-      <Navbar />
-      <Hero />
-      <Info />
-      <Infosecond />
-      <Selection />
-      <Banner />
-      <Mobile />
-      <Footer />
-    </div>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/vehicles" element={<Vehicles />} />
+        <Route path="/aboutus" element={<Aboutus />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
