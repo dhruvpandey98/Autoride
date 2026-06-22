@@ -1,0 +1,104 @@
+.faq-section {
+  background: #0e0f11;
+  padding: 90px 32px 100px;
+}
+
+.faq-section h2 {
+  font-family: "Archivo Expanded", "Arial Narrow", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: #f5f3ee;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 48px;
+}
+
+.accordian {
+  background: #15161a;
+  border: 1px solid #2a2c30;
+  border-radius: 14px;
+  max-width: 720px;
+  margin: 0 auto 14px;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+  color: white;
+}
+
+.accordian:hover {
+  border-color: #3a3d42;
+}
+
+.accordian.open {
+  border-color: #c8ff4d;
+}
+
+.accordian button {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f5f3ee;
+  padding: 20px 56px 20px 24px;
+  position: relative;
+  cursor: pointer;
+}
+
+.accordian button::after {
+  content: "+";
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #c8ff4d;
+  transition: transform 0.25s ease;
+}
+
+.accordian.open button::after {
+  content: "+";
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.accordian-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordian-panel div {
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #9a9da3;
+  padding: 0 24px 20px;
+}
+
+@media (max-width: 600px) {
+  .faq-section {
+    padding: 64px 20px 72px;
+  }
+
+  .accordian button {
+    font-size: 0.92rem;
+    padding: 16px 48px 16px 18px;
+  }
+
+  .accordian-panel div {
+    padding: 0 18px 16px;
+    font-size: 0.88rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accordian,
+  .accordian button::after,
+  .accordian-panel {
+    transition: none;
+  }
+}
