@@ -6,7 +6,11 @@ const Star = ({ filled }) => (
   </svg>
 )
 
+
+
 const Testimonials = ({ testimonial }) => {
+  if (!testimonial) return null
+
   return (
     <div className="container">
       <span className="quote-mark">&ldquo;</span>
@@ -17,14 +21,12 @@ const Testimonials = ({ testimonial }) => {
 
       <div className="rating">
         {Array.from({ length: 5 }).map((_, i) => (
-          <Star key={i} filled={i < testimonial.rating} />
+          <Star key={i} filled={i < (testimonial.rating || 0)} />
         ))}
       </div>
 
       <div className="profile">
-        <div className="image">
-          <img src={testimonial.image} alt={testimonial.name} />
-        </div>
+        
         <div className="name">
           <h3>{testimonial.name}</h3>
           <span>{testimonial.role}</span>

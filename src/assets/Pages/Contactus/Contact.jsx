@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import './Contact.css';
 import Navbar from '../../../components/Navbar/Navbar';
 import Footer from '../../../components/Footer/Footer';
@@ -11,13 +11,6 @@ import Footer from '../../../components/Footer/Footer';
  *   your own API route, etc).
  * - Swap PHONE / EMAIL / LOCATIONS with your real details.
  */
-
-const SECTIONS = [
-  { id: 'start', label: 'Start' },
-  { id: 'message', label: 'Send message' },
-  { id: 'find-us', label: 'Find us' },
-  { id: 'answers', label: 'Quick answers' },
-];
 
 const SUBJECTS = [
   'General inquiry',
@@ -154,7 +147,6 @@ export default function ContactUs() {
   });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState('idle'); // idle | submitting | success
-  const [active, setActive] = useState('start');
   const fieldRefs = useRef({});
 
   const handleChange = (field) => (e) => {
@@ -189,42 +181,11 @@ export default function ContactUs() {
     setStatus('idle');
   };
 
-  useEffect(() => {
-    const sections = SECTIONS.map((s) => document.getElementById(s.id)).filter(Boolean);
-    if (!sections.length || !('IntersectionObserver' in window)) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id);
-        });
-      },
-      { rootMargin: '-35% 0px -50% 0px', threshold: 0 }
-    );
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <>
       <Navbar />
 
-      {/* .contact-page is a flex row (rail + main) — Navbar/Footer stay
-          outside it so they render full-width above/below, not squeezed
-          in as a third flex column. */}
       <div className="contact-page">
-        <nav className="route-rail" aria-label="Jump to section">
-          <ol>
-            {SECTIONS.map((s) => (
-              <li key={s.id} className={active === s.id ? 'is-active' : ''}>
-                <a href={`#${s.id}`}>
-                  <span className="route-rail__pin" aria-hidden="true" />
-                  <span className="route-rail__label">{s.label}</span>
-                </a>
-              </li>
-            ))}
-          </ol>
-        </nav>
-
         <main>
           <section id="start" className="hero" aria-labelledby="hero-heading">
             <p className="eyebrow">Contact AutoRide</p>
