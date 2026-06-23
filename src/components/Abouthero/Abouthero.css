@@ -5,7 +5,8 @@
   background-image: url('/images/about-hero.jpg');
   background-size: cover;
   background-position: center;
-  background-color: #0e0f11;
+   background: radial-gradient(circle at 50% 0%, rgba(200, 255, 77, 0.12), transparent 60%),
+    linear-gradient(180deg, #15161a 0%, #0e0f11 100%);
   display: flex;
   align-items: center;
   justify-content: center;
